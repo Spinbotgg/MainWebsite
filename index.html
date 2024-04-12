@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Website</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+            background: linear-gradient(-45deg, #142d4c, #2a5298, #00c6ff);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        #sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            z-index: 1;
+            transition: transform 0.3s;
+        }
+        
+        #sidebar:hover {
+            transform: translateX(0);
+        }
+
+        #sidebar.closed {
+            transform: translateX(-100%);
+        }
+
+        .sidebar-item {
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .sidebar-item:hover {
+            color: #7289DA;
+        }
+
+        .content {
+            margin-left: 200px; /* Adjusted for sidebar width */
+            padding: 20px;
+        }
+
+        #joinButton {
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: #7289DA;
+            border: none;
+            border-radius: 25px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        #joinButton:hover {
+            background-color: #677BC4;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div id="sidebar" class="closed">
+        <div class="sidebar-item" onclick="redirectTo('https://spinbotgg.github.io/pricing')">Prices</div>
+        <div class="sidebar-item" onclick="redirectTo('https://spinbotgg.github.io/Features')">Features</div>
+    </div>
+    <div class="content">
+        <h1>Welcome to Our Website!</h1>
+        <p>This website offers various services and features. Feel free to explore!</p>
+        <button id="joinButton" onclick="redirectTo('https://discord.com/invite/spinbot')">Join Discord</button>
+    </div>
+
+    <script>
+        function redirectTo(url) {
+            window.location.href = url;
+        }
+    </script>
+</body>
+</html>
